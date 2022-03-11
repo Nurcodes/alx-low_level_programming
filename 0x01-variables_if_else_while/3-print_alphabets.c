@@ -13,12 +13,12 @@ int main(void)
 	char lettersLower = 'a';
 	char lettersUpper = 'A';
 
-	while(lettersLower <= 'z')
+	while (lettersLower <= 'z')
 	{
 		putchar(lettersLower);
 		lettersLower++;
 	}
-	while(lettersUpper <= 'Z')
+	while (lettersUpper <= 'Z')
 	{
 		putchar(lettersUpper);
 		lettersUpper++;
