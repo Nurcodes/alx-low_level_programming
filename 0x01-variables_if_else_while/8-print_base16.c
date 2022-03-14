@@ -1,26 +1,22 @@
 #include <stdio.h>
 /**
- * main - entry point
+ * main - print all the numbers of base 16 in lowercase
  *
  *
- * Return - 0 always
+ * Return: Always(0) Success
  *
  */
 int main(void)
 {
 	int n;
-	char hex = 'a';
 
-	for (n = 0; n < 16; n++)
+	for (n = 48; n < 58; n++)
 	{
-		if (n < 10)
-		{
-			putchar(n + '0');
-		} else 
-		{
-			putchar(hex);
-			hex++;
-		}
+		putchar(n);
+	} for (n = 'a'; n <= 'f'; n++)
+	{
+		putchar(n);
 	}
+	putchar(10);
 	return (0);
 }
