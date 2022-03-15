@@ -1,11 +1,9 @@
 #include "main.h"
 
 /**
- * _islower() - checks to see if lower or not.
- *
- * -islower(c) - is an argument of type int
- *
- *  Return: Always 0.
+ *_islower - checks for a lowercase character
+ *@c: letter being tested
+ * Return: Always 0
  */
 int _islower(int c)
 {
