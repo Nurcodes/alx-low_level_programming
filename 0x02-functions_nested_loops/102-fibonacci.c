@@ -21,6 +21,5 @@ int main(void)
 		nextT = t1 + t2;
 		i++;
 	}
-	putchar(10);
 	return (0);
 }
