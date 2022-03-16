@@ -3,27 +3,22 @@
  * main - entry point
  * Return: Always 0
  */
-int main (void)
+int main(void)
 {
-	long i = 0;
-	long sum =  0;
 	long t1 = 0;
 	long t2 = 1;
-	long next = t1 + t2;
+	long sum = 0;
+	long r = 0;
 
-	while (i < 20)
+	while (r <= 4000000)
 	{
-		if (next % 2 == 0)
-		{
-			sum += next;
-			printf("%ld", sum);
-		}
+		r = t1 + t2;
 		t1 = t2;
-		t2 = next;
-		next = t1 + t2;
-		i++;
+		t2 = r;
 
+		if ((t1 % 2) == 0)
+			sum += t1;
 	}
-	putchar(10);
+	printf("%ld \n", sum);
 	return (0);
 }
