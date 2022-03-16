@@ -6,7 +6,7 @@
  *
  * Return: Always 0
  */
-void get_mult(void)
+int get_mult(void)
 {
 	int i;
 	int sum;
@@ -19,4 +19,5 @@ void get_mult(void)
 		}
 	}
 	putchar('\n');
+	return (0);
 }
