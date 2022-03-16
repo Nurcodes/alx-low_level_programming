@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * print_to_98 - a function which prints all natural numbers from n to 98
  * @n: letter being tested
