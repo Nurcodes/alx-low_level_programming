@@ -5,7 +5,7 @@
  *
  * Return: Always 0
  */
-int get_mult(void)
+int multi(void)
 {
 	int i;
 	int sum;

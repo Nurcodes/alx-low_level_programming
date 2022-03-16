@@ -9,5 +9,4 @@ int print_last_digit(int a);
 void jack_bauer(void);
 int add(int n, int i);
 void print_to_98(int n);
-
-
+int multi(void);
