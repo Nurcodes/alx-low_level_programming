@@ -10,16 +10,15 @@ int main(void)
 	long t2 = 1;
 	long nextT = t1 + t2;
 
-	printf("%ld, ", t2);
-	while (i <= 48)
+	while (i <= 49)
 	{
+		if (i == 49)
+			printf("%ld\n", nextT);
+		else if (i != 49)
+			printf("%ld, ", nextT);
 		t1 = t2;
 		t2 = nextT;
 		nextT = t1 + t2;
-		if (i == 48)
-			printf("%ld\n", nextT);
-		else
-			printf("%ld, ", nextT);
 		i++;
 	}
 	putchar(10);
