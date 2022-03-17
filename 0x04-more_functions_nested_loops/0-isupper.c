@@ -7,8 +7,8 @@
 int _isupper(int c)
 {
 	if (c < 90 && c > 64)
-		c = 49;
+		c = 1;
 	else if (c < 123 && c > 96)
-		c = 48;
+		c = 0;
 	return (c);
 }
