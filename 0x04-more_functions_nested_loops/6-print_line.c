@@ -11,7 +11,7 @@ void print_line(int n)
 	{
 		_putchar(10);
 	}
-	if (n < 0)
+	if (n > 0)
 	{
 		while (i <= n)
 		{
@@ -19,5 +19,6 @@ void print_line(int n)
 			i++;
 		}
 	}
+
 	_putchar(10);
 }
