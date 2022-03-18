@@ -10,6 +10,5 @@ int _isdigit(int c)
 		c = 1;
 	else
 		c = 0;
-	
 	return (c);
 }
