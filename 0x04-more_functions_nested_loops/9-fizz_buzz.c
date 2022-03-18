@@ -10,7 +10,7 @@ int main(void)
 	char buzz[] = "Buzz";
 	char Fizzbuzz[] = "FizzBuzz";
 
-	for (a = 1; a <= 100; a++)
+	for (a = 1; a < 100; a++)
 	{
 		if (a % 5 == 0 && a % 3 == 0)
 			printf("%s ", Fizzbuzz);
@@ -21,5 +21,7 @@ int main(void)
 		else
 			printf("%d ", a);
 	}
+	printf("%s", buzz);
+	printf("\n");
 	return (0);
 }
