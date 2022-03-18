@@ -18,7 +18,8 @@ void more_numbers(void)
 			{
 				putchar(b / 10 + '0');
 			}
-			putchar(b % 10 + '0');
+			
+				putchar(b % 10 + '0');
 
 			b++;
 		}
