@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * more_numbers - a function which prints 10x 0-14
  * Return: Always 0
