@@ -16,7 +16,7 @@ void puts2(char *str)
 		count++;
 	}
 
-	for (i = 0; i < count / 2; i++)
+	for (i = 0; i <= count / 2; i++)
 	{
 		_putchar(*temp);
 		temp+=2;
