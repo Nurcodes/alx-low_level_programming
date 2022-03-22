@@ -16,10 +16,10 @@ void puts2(char *str)
 		count++;
 	}
 
-	for (i = 0; i <= count / 2; i++)
+	while (i < count)
 	{
-		_putchar(*temp);
-		temp+=2;
+		_putchar(str[i]);
+		i += 2;
 	}
 	_putchar(10);
 }
