@@ -6,19 +6,23 @@
  */
 void rev_string(char *s)
 {
-	int i;
-	int count = 0;
+	char *t = s;
+	char n[1000];
+	int c = 0;
 
-	while (*s[count] != '\0')
+	while (*s != '\0')
 	{
+		n[c] = *s;
 		s++;
-		count++
+		c++;
 	}
 
-	while (count > 0)
+	c = 0;
+
+	while (s > t)
 	{
-		_putchar(s[count]);
-		count--;
+		s--;
+		*s = n[c];
+		c++;
 	}
-	_putchar(10);
 }
