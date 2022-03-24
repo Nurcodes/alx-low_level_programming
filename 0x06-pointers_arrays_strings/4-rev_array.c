@@ -7,19 +7,18 @@
  */
 void reverse_array(int *a, int n)
 {
-	int i = 0;
-	int b[100];
+	int b;
+	int j;
+	int c = 0;
 
-	for (i = 0; a[i] != a[n]; i++)
-	{
-		b[i] = a[i];
-	}
-	i = 0;
+	j = n - 1;
 
-	while (n > 0)
+	while (c < j)
 	{
-		a[i] = b[n - 1];
-		i++;
-		n--;
+		b = a[c];
+		a[c] = a[j];
+		a[j] = b;
+		c++;
+		j--;
 	}
 }
