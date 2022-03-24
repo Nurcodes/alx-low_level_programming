@@ -26,10 +26,13 @@ int _strcmp(char *s1, char *s2)
 	s2_size = j;
 
 	if (s2_size > s1_size)
+	{
 		score = -1;
+	}
 	else if (s2_size < s1_size)
+	{
 		score = 1;
-	else
+	} else
 		score = 0;
 
 	return (score);
