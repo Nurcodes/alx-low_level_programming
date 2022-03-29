@@ -1,11 +1,12 @@
 #include "main.h"
-/**
-*_memset - a function
-*@s: a letter
-*@b: a letter
-*@n: a letter
-*Return: Always 0
-*/
+
+/*
+ * _memset - a function which munipulates memory
+ * @s: a letter being tested
+ * @b: a letter being tested
+ * @n: a letter being tested
+ * Return: Always 0
+ */
 
 char *_memset(char *s, char b, unsigned int n)
 {
