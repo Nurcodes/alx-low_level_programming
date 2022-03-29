@@ -1,6 +1,6 @@
 #include "main.h"
 
-/*
+/**
  * _memset - a function which munipulates memory
  * @s: a letter being tested
  * @b: a letter being tested
