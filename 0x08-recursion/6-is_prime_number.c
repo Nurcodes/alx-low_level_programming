@@ -9,6 +9,13 @@ int is_prime_number(int n)
 {
 	return (prime(n, 2));
 }
+/**
+ * prime - a function
+ * @n: letter
+ * @i: letter
+ * Return: Always 0
+ */
+
 
 int prime(int n, int i)
 {
