@@ -27,11 +27,13 @@ int main(int argc, char **argv)
 		}
 	}
 
-	if (argc < 2)
+	while (--argc)
 	{
-		printf("0\n");
-		return (0);
-
+		if (*argv[argc] < '0' || *argv[argc] > '9')
+		{
+			printf("0\n");
+			return (1);
+		}
 	}
 	if (flag == 1)
 	{
