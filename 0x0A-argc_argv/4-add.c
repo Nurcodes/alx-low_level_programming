@@ -10,37 +10,46 @@
 
 int main(int argc, char **argv)
 {
-	long int i;
 	long int sum = 0;
-	int flag;
+	int i;
 
-	for (i = 1; i < argc; i++)
+	int is_int(char **s);
+
+	if (argc > 1)
 	{
-		if (*argv[i] < 48 || *argv[i] > 57)
-		{
-			flag = 1;
-			break;
-		}
-		else if (*argv[i] >= 48 && *argv[i] <= 57)
+		for (i = 1; i < argc; i++)
 		{
 			sum += atoi(argv[i]);
 		}
-	}
+		printf("%li\n", sum);
+	} else
+		is_int(argv);
+	return (0);
 
-	while (--argc)
+}
+
+/**
+ * is_int - funtion to check whether an int
+ * @s: string being checked
+ * Return: 0
+ */
+
+
+
+int is_int(char **s)
+{
+	int o = 0;
+
+	while (*s[o] != '\0')
 	{
-		if (*argv[argc] < '0' || *argv[argc] > '9')
+		if (*s[o] < '0' || *s[o] > '9')
 		{
 			printf("0\n");
-			return (1);
+			break;
 		}
+		else
+			return (0);
+		o++;
 	}
-	if (flag == 1)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	else
-		printf("%li\n", sum);
 	return (0);
 }
