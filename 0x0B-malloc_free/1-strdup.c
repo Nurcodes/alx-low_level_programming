@@ -23,6 +23,8 @@ char *_strdup(char *str)
 	}
 	len = (p + 1) - str;
 	ptr = (char *)malloc(len * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		ptr[i] = str[i];
