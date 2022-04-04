@@ -32,5 +32,5 @@ char *_strdup(char *str)
 	if (sizeof(str) == sizeof(ptr))
 		return (ptr);
 	else
-		return(NULL);
+		return (NULL);
 }
