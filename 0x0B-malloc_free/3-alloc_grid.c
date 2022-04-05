@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * alloc_grid - a function
  * @width: param
@@ -10,35 +9,35 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int i;
-	int j;
+	int i, j, k;
 	int **ptr;
 
 	if (width  <= 0 || height <= 0)
 	{
 		return (NULL);
 	}
-	if (!(width  <= 0 && height <= 0))
+	ptr = (int **)malloc(height * sizeof(int *));
+	if (ptr == NULL)
 	{
-		ptr = (int **)malloc(height * sizeof(int *));
-		if (ptr == NULL)
+		free(ptr);
+		return (NULL);
+	}
+	for (i = 0; i < height; i++)
+	{
+		ptr[i] = malloc(width * sizeof(int));
+		if (ptr[i] == NULL)
+		{
+			for (k = i; k >= 0; k--)
+			{
+				free(ptr[k]);
+			}
 			free(ptr);
 			return (NULL);
-		for (i = 0; i < height; i++)
-		{
-			ptr[i] = (int *)malloc(width * sizeof(int));
 		}
-		for (i = 0; i < height; i++)
+		for (j = 0; j < width; j++)
 		{
-			for (j = 0; j < width; j++)
-			{
-				*(*(ptr + i) + j) = 0;
-			}
+			*(*(ptr + i) + j) = 0;
 		}
 	}
-
 	return (ptr);
-
-
-
 }
