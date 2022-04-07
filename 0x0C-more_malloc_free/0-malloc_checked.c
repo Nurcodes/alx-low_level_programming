@@ -10,11 +10,11 @@
 
 void *malloc_checked(unsigned int b)
 {
-	unsigned int *ptr;
+	void *ptr;
 
 	if (b >= INT_MAX)
 		exit(98);
-	ptr = malloc(sizeof(*ptr) * b);
+	ptr = malloc(b);
 	if (ptr == NULL)
 	{
 		ptr = NULL;
