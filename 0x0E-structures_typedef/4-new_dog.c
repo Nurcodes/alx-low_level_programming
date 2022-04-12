@@ -29,11 +29,16 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		b++;
 	}
-	ptr = malloc(sizeof(dog_t) + sizeof(age));
+	ptr = malloc(sizeof(dog_t));
 	ptr->name = malloc(i + 1);
 	ptr->owner = malloc(b + 1);
 	if (ptr == NULL)
+	{
+		free(ptr->name);
+		free(ptr->owner);
+		free(ptr);
 		return (NULL);
+	}
 	ptr->name = name;
 	ptr->age = age;
 	ptr->owner = owner;
