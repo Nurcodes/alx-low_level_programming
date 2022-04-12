@@ -1,5 +1,3 @@
-#ifndef _DOG_H
-#define _DOG_H
 /**
  * struct dog - first struct
  * @name: first
@@ -12,5 +10,3 @@ typedef struct dog
 	float age;
 	char *owner;
 } dog;
-
-endif
