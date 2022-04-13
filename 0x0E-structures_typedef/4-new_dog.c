@@ -2,6 +2,9 @@
 #include "dog.h"
 #include <stdlib.h>
 
+int _strlen(char *str);
+void fillmem(char *str, int strLen, char *dest);
+
 /**
  * new_dog - function
  * @name: n
@@ -12,34 +15,78 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *n = name;
-	char *o = owner;
-	int i = 0;
-	int b = 0;
 	dog_t *ptr;
+	int nameLen, ownerLen;
 
 	if (name == NULL || owner == NULL || age == 0)
 		exit(1);
 
-	while (n[i] != '\0')
-	{
-		i++;
-	}
-	while (o[b] != '\0')
-	{
-		b++;
-	}
-	ptr = malloc(sizeof(dog_t) + sizeof(float) + (i + b + 2));
+	ptr = malloc(sizeof(dog_t));
 	if (ptr == NULL)
+		return (NULL);
+	nameLen = _strlen(name);
+	ptr->name = malloc(sizeof(char) * nameLen + 1);
+	if (ptr->name == NULL)
 	{
 		free(ptr->name);
+		return (NULL);
+	}
+
+	fillmem(name, nameLen, ptr->name);
+
+	ownerLen = _strlen(owner);
+	ptr->owner = malloc(sizeof(char) * ownerLen + 1);
+	if (ptr->owner == NULL)
+	{
 		free(ptr->owner);
 		free(ptr);
 		return (NULL);
 	}
-	ptr->name = name;
+
+	fillmem(owner, ownerLen, ptr->owner);
+
 	ptr->age = age;
-	ptr->owner = owner;
 
 	return (ptr);
+}
+
+/**
+ * _strlen - get length
+ *
+ * @str: string
+ *
+ * Return: length
+ */
+
+int _strlen(char *str)
+{
+	int i = 0;
+
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+/**
+ * fillmem - copy string to allocated memory
+ *
+ * @str: string literal
+ *
+ * @strLen: length
+ *
+ * @dest: dest
+ */
+
+void fillmem(char *str, int strLen, char *dest)
+{
+	int i;
+
+	for (i = 0; i < strLen; i++)
+	{
+		dest[i] = str[i];
+	}
+
+	dest[i] = '\0';
 }
