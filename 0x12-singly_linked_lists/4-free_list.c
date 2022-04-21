@@ -14,17 +14,13 @@ void free_list(list_t *head)
 {
 	list_t *temp = head;
 
-	if (head != NULL)
+	while (temp->next != NULL)
 	{
-		while (temp->next != NULL)
-		{
-			list_t *aux = temp;
+		list_t *aux = temp;
 
-			temp = temp->next;
-			free(aux->str);
-			free(aux);
-		}
-	} else
-		exit(1);
+		temp = temp->next;
+		free(aux->str);
+		free(aux);
+	}
 
 }
