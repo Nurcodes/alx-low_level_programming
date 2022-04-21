@@ -1,18 +1,16 @@
-global _start
+section .data
+	msg: db "Hello, Holberton", 0x0a
+	msglen equ $-msg
 
 section .text
+	global main
 
-_start:
-	MOV rax, 0x1
-	MOV rdi, 0x1
-	MOV rsi, msg
-	MOV rdx, msglength
-	SYSCALL
-
-	MOV rax, 0x3C
-	MOV rdi, 0x0
-	SYSCALL
-
-section .data
-	msg: DB "Hello, Holberton", 0xA
-	msglength: EQU $ - msg
+main:
+	mov eax, 1
+	mov edi, 1
+	mov rsi, msg
+	mov edx, msglen
+	syscall
+	mov eax, 60
+	xor edi, edi
+	syscall
