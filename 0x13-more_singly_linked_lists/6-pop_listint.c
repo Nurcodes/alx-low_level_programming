@@ -12,13 +12,18 @@
 
 int pop_listint(listint_t **head)
 {
+	int a = 0;
+
+	listint_t *temp;
+
+	temp = *head;
+
+	a = temp->n;
+
 	if (head == NULL)
 		return (0);
-	listint_t *temp = *head;
-
-	int n = temp->n;
 
 	*head = temp->next;
 
-	return (n);
+	return (a);
 }
