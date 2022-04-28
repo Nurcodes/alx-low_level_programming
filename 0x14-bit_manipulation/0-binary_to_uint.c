@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * binary_to_uint - converts binary string to decimal value
@@ -28,7 +29,6 @@ unsigned int binary_to_uint(const char *b)
 		if (b[len - i - 1] == '1')
 		{
 			n += 1 << i;
-			printf("n is %d\n", n);
 		}
 		else if (b[len - i - 1] != '0')
 		{
