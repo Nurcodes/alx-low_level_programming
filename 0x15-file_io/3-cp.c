@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  *main - copies the contents of a file to another
  *Description:cp file_from file_to
