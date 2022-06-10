@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include "lists.h"
-
 /**
- * keygen print a valid key for the username
+ * main - print a valid key for the username
  * Return: key of the username
  **/
-
-int main()
+int main(void)
 {
-  return (key);
+	return (key);
 }
