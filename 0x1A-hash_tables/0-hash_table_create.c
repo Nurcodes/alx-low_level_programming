@@ -12,7 +12,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *table;
 
-	unsigned long int i = 0
+	unsigned long int i = 0;
 
 	if (!size)
 		return (NULL);
@@ -33,10 +33,10 @@ hash_table_t *hash_table_create(unsigned long int size)
 	while (i < size)
 	{
 		table->array[i] = NULL;
-		i++
+		i++;
 	}
 
-	return (table)
+	return (table);
 
 
 }
