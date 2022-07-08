@@ -38,6 +38,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			free(element->value);
 			element->value = malloc(strlen(value) + 1);
+			element->value = strcpy(element->value, value);
 			return (1);
 		}
 

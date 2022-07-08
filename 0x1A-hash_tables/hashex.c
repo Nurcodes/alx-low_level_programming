@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TABLE_SIZE 2
+#define TABLE_SIZE 1
 
 typedef struct entry_t
 {
@@ -121,11 +121,11 @@ void ht_set(ht_t *hashtable, const char *key, const char *value)
 	}
 
 	// adds a new node to the list at the current slot
-	entry_t *tmp;
+	//entry_t *tmp;
 
 
-	tmp = ht_pair(key, value);
-	prev->next = tmp;
+	//tmp = ht_pair(key, value);
+	prev->next = ht_pair(key, value);
 
 }
 
@@ -201,10 +201,9 @@ int main(int argc, char **argv)
 {
 	ht_t *ht = ht_create();
 
-	ht_set(ht, "hetairas", "tessst");
-	ht_set(ht, "mentioner", "test");
-	ht_set(ht, "stylist", "tes5");
-	ht_set(ht, "subgenera", "worker");
+	ht_set(ht, "hetairas", "1");
+	ht_set(ht, "mentioner", "2");
+	ht_set(ht, "stylist", "3");
 
 	ht_dump(ht);
 	return (0);
