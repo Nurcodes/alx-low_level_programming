@@ -21,7 +21,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	if (element == NULL)
 		return (NULL);
 
-	while(element != NULL)
+	while (element != NULL)
 	{
 		if (strcmp(element->key, key) == 0)
 		{
