@@ -13,8 +13,8 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *element = NULL;
-	hash_node_t *prev = NULL;
+	hash_node_t *element;
+	hash_node_t *prev;
 	unsigned long int slot;
 
 	if (ht == NULL || *key == '\0' || key == NULL || value == NULL)
@@ -64,7 +64,17 @@ hash_node_t *ht_pair(const char *key, const char *value)
 {
 	hash_node_t *element = malloc(sizeof(hash_node_t));
 
+	if (element == NULL)
+		return (0);
+
 	element->key = malloc(strlen(key) + 1);
+	if (element->key == NULL)
+	{
+		free(element->key);
+		free(element->value);
+		free(element);
+		return (0);
+	}
 	element->value = malloc(strlen(key) + 1);
 
 	element->key = strcpy(element->key, key);
