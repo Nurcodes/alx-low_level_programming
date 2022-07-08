@@ -46,10 +46,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	if (prev->next == NULL)
 	{
-		prev->next = ht_pair(key, value);
+		hash_node_t *tmp;
+
+		tmp = ht_pair(key, value);
+		prev->next = tmp;
 		return (1);
 	}
-
 	return (0);
 }
 

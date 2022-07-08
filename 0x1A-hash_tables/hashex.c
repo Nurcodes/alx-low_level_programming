@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TABLE_SIZE 5
+#define TABLE_SIZE 2
 
 typedef struct entry_t
 {
@@ -40,16 +40,15 @@ ht_t *ht_create(void)
 
 
 /**--------------------------HASH FUNCTION-----------------------------------------*/
-unsigned int hash(const char *key)
+unsigned int hash(const char *str)
 {
-	unsigned long int value = 0;
-	unsigned int i = 0;
-	unsigned key_len = strlen(key);
+	unsigned long int value;
+	int c;
 
 	// do several rounds of multiplication to the value
-	for (; i < key_len; ++i)
+	while ((c = *str++))
 	{
-		value = value * 33 + key[i];
+		value = ((value << 5) + value) + c;
 	}
 
 	// make sure value is 0 <= value < TABLE_SIZE
@@ -122,7 +121,12 @@ void ht_set(ht_t *hashtable, const char *key, const char *value)
 	}
 
 	// adds a new node to the list at the current slot
-	prev->next = ht_pair(key, value);
+	entry_t *tmp;
+
+
+	tmp = ht_pair(key, value);
+	prev->next = tmp;
+
 }
 
 
@@ -162,6 +166,7 @@ char *ht_get(ht_t *hashtable, const char *key)
 void ht_dump(ht_t *hashtable)
 {
 	int i = 0;
+	int j = 0;
 	
 	for (; i < TABLE_SIZE; ++i)
 	{
@@ -173,13 +178,13 @@ void ht_dump(ht_t *hashtable)
 			continue;
 
 		// print each slot number
-		printf("slot[%4d]: ", i);
+		printf("slot[%4d]== ", i);
 
 		// go inside the slot and now in the list
 		// prints each key and value
-		for(;;)
+		for (j;;j++)
 		{
-			printf("%s=%s", entry->key, entry->value);
+			printf("index-[%d]: %s:%s ", j, entry->key, entry->value);
 
 			if (entry->next == NULL)
 				break;
@@ -196,11 +201,11 @@ int main(int argc, char **argv)
 {
 	ht_t *ht = ht_create();
 
-	ht_set(ht, "name1", "tessst");
-	ht_set(ht, "name2", "test");
-	ht_set(ht, "name3", "tes5");
-	ht_set(ht, "name4", "worker");
-	ht_set(ht, "name5", "owner");
-	ht_get(ht, "name5");
+	ht_set(ht, "hetairas", "tessst");
+	ht_set(ht, "mentioner", "test");
+	ht_set(ht, "stylist", "tes5");
+	ht_set(ht, "subgenera", "worker");
+
+	ht_dump(ht);
 	return (0);
 }
