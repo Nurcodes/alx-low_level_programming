@@ -14,77 +14,46 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *element;
-	hash_node_t *prev;
 	unsigned long int slot;
+	char *copy;
+	int i;
 
 	if (ht == NULL || *key == '\0' || key == NULL || value == NULL)
 	{
 		return (0);
 	}
 
-	slot = key_index((unsigned const char *)key, ht->size);
+	copy = strdup(value);
 
-	element = ht->array[slot];
-
-	if (element == NULL)
-	{
-		ht->array[slot] = ht_pair(key, value);
-		return (1);
-	}
-
-	while (element != NULL)
-	{
-		if (strcmp(element->key, key) == 0)
-		{
-			free(element->value);
-			element->value = malloc(strlen(value) + 1);
-			element->value = strcpy(element->value, value);
-			return (1);
-		}
-
-		prev = element;
-		element = prev->next;
-	}
-	if (prev->next == NULL)
-	{
-		hash_node_t *tmp;
-
-		tmp = ht_pair(key, value);
-		prev->next = tmp;
-		return (1);
-	}
-	return (0);
-}
-
-/**
- * ht_pair - allocates new element in hash table
- *
- * @key: key
- * @value: value
- * Return: element
- */
-hash_node_t *ht_pair(const char *key, const char *value)
-{
-	hash_node_t *element = malloc(sizeof(hash_node_t));
-
-	if (element == NULL)
+	if (copy == NULL)
 		return (0);
 
-	element->key = malloc(strlen(key) + 1);
+	slot = key_index((unsigned const char *)key, ht->size);
+
+	for (i = slot; ht->array[i]; i++)
+	{
+		if (strcmp(ht->array[i]->key, key) == 0)
+		{
+			free(ht->array[i]->value);
+			ht->array[i]->value = copy;
+			return (1);
+		}
+	}
+
+	element = malloc(sizeof(hash_node_t));
+	if (element == NULL)
+	{
+		free(copy);
+		return (0);
+	}
+	element->key = strdup(key);
 	if (element->key == NULL)
 	{
-		free(element->key);
-		free(element->value);
 		free(element);
 		return (0);
 	}
-	element->value = malloc(strlen(key) + 1);
-
-	element->key = strcpy(element->key, key);
-	element->value = strcpy(element->value, value);
-
-
-	element->next = NULL;
-
-	return (element);
+	element->value = copy;
+	element->next = ht->array[slot];
+	ht->array[slot] = element;
+	return (1);
 }
