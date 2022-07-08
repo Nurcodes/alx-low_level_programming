@@ -40,6 +40,23 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 	}
 
+	element = ht_set(key, copy);
+	element->value = copy;
+	element->next = ht->array[slot];
+	ht->array[slot] = element;
+	return (1);
+}
+
+/**
+ * ht_set - set node
+ * @key: key
+ * @copy: copy
+ * Return: a list
+ */
+hash_node_t *ht_set(const char *key, char *copy)
+{
+	hash_node_t *element;
+
 	element = malloc(sizeof(hash_node_t));
 	if (element == NULL)
 	{
@@ -52,8 +69,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(element);
 		return (0);
 	}
-	element->value = copy;
-	element->next = ht->array[slot];
-	ht->array[slot] = element;
-	return (1);
+	return (element);
 }
